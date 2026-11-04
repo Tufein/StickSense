@@ -1,0 +1,11 @@
+{
+  "name": "sticksense",
+  "version": "0.1.0",
+  "description": "Meet drift, deadzone en nauwkeurigheid van je gamepad-sticks, volledig in de browser.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node scripts/serve.js"
+  },
+  "license": "MIT"
+}
