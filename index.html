@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1115">
+  <title>StickSense – saves en profielen</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Stick<span>Sense</span></h1>
+    <p>Saves en profielen voor je AYN- of Retroid-handheld. Alles blijft op je eigen toestel.</p>
+    <nav role="tablist">
+      <button role="tab" data-tab="saves" aria-selected="true">Saves</button>
+      <button role="tab" data-tab="profielen" aria-selected="false">Profielen</button>
+      <button role="tab" data-tab="backup" aria-selected="false">Back-up</button>
+    </nav>
+  </header>
+  <main>
+    <section id="tab-saves">
+      <div class="drop" id="drop" tabindex="0">
+        <p><strong>Sleep bestanden hierheen</strong> of kies ze: saves (.srm, .sav, .mcr), savestates en emulatorinstellingen.</p>
+        <label class="btn">Bestanden kiezen<input id="pick" type="file" multiple hidden></label>
+        <label class="btn ghost">Hele map kiezen<input id="pickdir" type="file" webkitdirectory multiple hidden></label>
+      </div>
+      <div class="bar">
+        <input id="search" type="search" placeholder="Zoek op spel of bestand" aria-label="Zoeken">
+        <select id="kind" aria-label="Filter op type">
+          <option value="">Alle types</option><option value="save">Saves</option><option value="state">Savestates</option><option value="config">Instellingen</option><option value="overig">Overig</option>
+        </select>
+      </div>
+      <p id="stats" class="muted"></p>
+      <div id="list"></div>
+    </section>
+
+    <section id="tab-profielen" hidden>
+      <form id="pform" class="card">
+        <h2>Nieuw profiel</h2>
+        <label>Naam <input name="name" required maxlength="60" placeholder="Bijv. Odin 2 – PS2 setup"></label>
+        <div class="row">
+          <label>Toestel <select name="device" id="pdevice"></select></label>
+          <label>Emulator <select name="emulator" id="pemu"></select></label>
+        </div>
+        <label>Notities <textarea name="notes" rows="2" maxlength="500" placeholder="Bijv. GPU-driver, resolutie, controller-layout"></textarea></label>
+        <fieldset><legend>Instellingsbestanden uit je bibliotheek</legend><div id="pfiles" class="muted">Importeer eerst bestanden op het tabblad Saves.</div></fieldset>
+        <button class="btn" type="submit">Profiel opslaan</button>
+      </form>
+      <div class="bar"><button class="btn ghost" id="pexport">Profielen exporteren</button>
+        <label class="btn ghost">Profielen importeren<input id="pimport" type="file" accept=".json" hidden></label></div>
+      <div id="plist"></div>
+    </section>
+
+    <section id="tab-backup" hidden>
+      <div class="card">
+        <h2>Back-up maken</h2>
+        <p>Download alles (saves, instellingen, profielen) als zip. Je kunt die op een ander toestel terugzetten.</p>
+        <label>Toestelnaam <input id="device" placeholder="Bijv. Mijn Odin 2"></label>
+        <button class="btn" id="export">Zip downloaden</button>
+      </div>
+      <div class="card">
+        <h2>Back-up terugzetten</h2>
+        <p>Kies een StickSense-zip. Je ziet eerst wat nieuw is en wat verschilt. Niets wordt overschreven zonder jouw keuze.</p>
+        <label class="btn">Zip kiezen<input id="restore" type="file" accept=".zip" hidden></label>
+        <div id="diff"></div>
+      </div>
+      <div class="card danger">
+        <h2>Alles wissen</h2>
+        <p>Verwijdert de bibliotheek in deze browser. Maak eerst een back-up.</p>
+        <button class="btn danger-btn" id="wipe">Bibliotheek wissen</button>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+:root{--bg:#0f1115;--card:#181b22;--line:#2a2f3a;--text:#e8eaf0;--muted:#98a0b3;--accent:#4cc9f0;--ok:#57cc99;--warn:#ffb703;--bad:#ef476f}
+@media (prefers-color-scheme:light){:root{--bg:#f5f6fa;--card:#fff;--line:#d9dce5;--text:#1a1d26;--muted:#5d6579;--accent:#0a7ea4}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif}
+header,main{max-width:860px;margin:0 auto;padding:16px}
+h1{margin:.2em 0;font-size:1.8rem}h1 span{color:var(--accent)}
+header p{margin:0 0 12px;color:var(--muted)}
+nav{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+nav button{background:none;border:0;color:var(--muted);padding:10px 14px;font:inherit;cursor:pointer;border-bottom:3px solid transparent;min-height:44px}
+nav button[aria-selected=true]{color:var(--text);border-color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:#04121a;border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;min-height:44px;margin:4px 6px 4px 0}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.small{padding:4px 10px;min-height:32px;font-size:.85rem}
+.danger-btn{background:var(--bad);color:#fff}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:18px;text-align:center;margin:12px 0}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+input,select,textarea{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit;width:100%}
+.bar input{flex:1 1 200px;width:auto}.bar select{width:auto}
+label{display:block;margin:8px 0;font-size:.9rem;color:var(--muted)}
+label.btn{color:#04121a;font-size:1rem}label.btn.ghost{color:var(--text)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card,.game{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.card.danger{border-color:var(--bad)}
+.game h3{margin:0 0 6px;font-size:1.05rem}
+.file{display:flex;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.file .name{flex:1 1 200px;overflow-wrap:anywhere}
+.tag{font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--line);color:var(--muted)}
+.tag.nieuw{background:var(--ok);color:#04210f}.tag.gewijzigd{background:var(--warn);color:#2a1d00}.tag.gelijk{background:var(--line)}
+.muted{color:var(--muted)}
+fieldset{border:1px solid var(--line);border-radius:8px;margin:10px 0}
+fieldset label{display:flex;gap:8px;align-items:center;color:var(--text)}fieldset input{width:auto}
+.empty{text-align:center;padding:30px;color:var(--muted)}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+#toast.show{opacity:1}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
