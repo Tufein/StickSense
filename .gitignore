@@ -1,5 +1,4 @@
-node_modules/
-.DS_Store
-android/local.properties
-android/.gradle/
-android/**/build/
+*.png
+!docs/*.png
+speedlog.csv
+__pycache__/
