@@ -1,0 +1,2 @@
+date,time,channel,contact_person,ticket_number,summary,promise_or_outcome,follow_up_date,attachment
+2026-11-12,18:00,example-chat,Agent Jan,TN-000000,"Asked about speed drop after 2.1 TB","Agent said it's FUP; would escalate",2026-11-19,screenshots/2026-11-12-chat.png

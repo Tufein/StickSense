@@ -1,0 +1,25 @@
+name: release
+
+# Publishes a GitHub release whenever main changes and VERSION holds a new number.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release if VERSION is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          v="v$(tr -d '[:space:]' < VERSION)"
+          if gh release view "$v" >/dev/null 2>&1; then
+            echo "$v already released, skipping"; exit 0
+          fi
+          gh release create "$v" --target "$GITHUB_SHA" --title "Project Killshot Wifi $v" --generate-notes
