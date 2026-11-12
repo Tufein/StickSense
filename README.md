@@ -78,6 +78,14 @@ All of this runs on **your own** network. Nothing touches Telenet equipment beyo
 - **Stream smarter:** 1080p instead of 4K where you can't tell the difference saves ~50–70%.
 - **Upload counts too** on most plans: check backup and camera upload settings.
 
+
+### Diagnose the throttle (router-side, no tricks)
+`tools/throttle-probe.sh` runs the same download across several hosts, IPv4 vs IPv6 and 1 vs 4 streams, and the header explains how to read the result. A volume FUP is applied by Telenet upstream of your router, so no router setting can lift it; this script shows whether you are actually looking at a volume cap or at something else (per-flow limit, bad peering, one protocol), which are different complaints.
+
+Router changes that are legitimate and useful: WAN byte counters (vnstat/SNMP), per-device usage, SQM/fq_codel to cut bufferbloat, bridge mode on the modem so your own router is the only measurement point. Do **not** try MAC cloning, modem profile swaps or spoofing to reset the counter: that is a contract breach and can get the line cut.
+
+**If this is a project for Telenet:** ask their network team for a written test scope and a test line or profile without FUP. That is the clean way to experiment, and it protects you.
+
 ### Escape the cap
 - Ask Telenet in writing for a plan **without** FUP, or a business (Telenet Business) line, and get the conditions in writing.
 - Compare alternatives that advertise "zonder fair use": check current offers on [BIPT's price comparison tool](https://www.bestetarief.be) and operators like Proximus, Orange, Mobile Vikings, Digi. Throttling outside your contract terms is usually grounds to leave without penalty; ask the Ombudsdienst to confirm.
