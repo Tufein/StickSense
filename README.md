@@ -106,6 +106,7 @@ evidence/evidence-log.csv  contact + incident log template
 templates/                 complaint letters (Dutch), ready to fill in
 tools/speedlog.sh          scheduled speed logger -> CSV
 tools/plot.py              graph usage vs. speed from the CSV
+VERSION                    bump this; merging to main publishes a GitHub release
 ```
 
 ## Sources
@@ -118,3 +119,7 @@ tools/plot.py              graph usage vs. speed from the CSV
 - [Telenet infofiche internet](https://www2.telenet.be/content/dam/www-telenet-touch/nl/klantenservice/infofiches/infofiche-internet.pdf)
 
 *Figures (3 TB / 300 GB) are from BIPT's 2022 guidelines and secondary reporting; verify against your own current contract before sending any letter.*
+
+---
+
+*This repository used to hold StickSense (gamepad tester). That code is preserved in git history at commit `c2c5c0c`.*
