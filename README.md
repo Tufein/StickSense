@@ -43,4 +43,12 @@ Back-ups worden in het geheugen opgebouwd; zeer grote bibliotheken (honderden MB
 - `docs/`: onderzoek en app-ideeën
 
 ## Licentie
-MIT
+MIT ([LICENSE](LICENSE))
+
+## Beveiliging
+
+Zie [SECURITY.md](SECURITY.md) voor hoe je een kwetsbaarheid meldt en welke geheimen dit project bewaart.
+
+## Documentation
+
+[Meedoen](CONTRIBUTING.md) · [Beveiliging](SECURITY.md) · [Ideeën](docs/app-ideeen.md)

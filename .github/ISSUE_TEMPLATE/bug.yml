@@ -1,0 +1,28 @@
+name: Probleem melden
+description: Meld een reproduceerbaar probleem met de versie en het toestel waarop je testte.
+body:
+  - type: markdown
+    attributes:
+      value: Deel geen back-upzip met saves van derden en geen privé-paden; beschrijf alleen wat je zelf hebt gemaakt.
+  - type: input
+    id: version
+    attributes:
+      label: Versie en downloadbron
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Toestel, Android-versie en StickSense-versie (web of APK)
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Stappen, verwacht resultaat en echt resultaat
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Browser of native app, gekoppelde mappen en of het om een bestaande back-up of een nieuwe gaat
