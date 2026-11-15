@@ -5,6 +5,10 @@ on:
     paths: ['android/**']
   pull_request:
     paths: ['android/**']
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Android SDK (staat al op de runner)
+      - name: Android SDK (preinstalled on the runner)
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true; "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-34" "build-tools;34.0.0"
         working-directory: .
       - run: ./gradlew :core:test :app:assembleDebug
